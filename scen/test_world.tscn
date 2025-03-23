@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://odscl263nh4w"]
+
+[ext_resource type="Texture2D" uid="uid://sdohaj4csv3q" path="res://ssets/kenney_prototype_textures/dark/texture_07.png" id="1_3cyi0"]
+[ext_resource type="PackedScene" uid="uid://btkiakbwd8ra8" path="res://scen/PLYER.tscn" id="2_1x2e1"]
+[ext_resource type="ArrayMesh" uid="uid://byv7n3u2c7hr6" path="res://ssets/OBJ format/desk.obj" id="3_17iq3"]
+[ext_resource type="ArrayMesh" uid="uid://d4nei2w2caecj" path="res://ssets/OBJ format/books.obj" id="4_ad21a"]
+[ext_resource type="ArrayMesh" uid="uid://dptipwossf07c" path="res://ssets/OBJ format/chairModernFrameCushion.obj" id="5_noggw"]
+[ext_resource type="PackedScene" uid="uid://ovlvjg12astt" path="res://scen/enemy_1.tscn" id="6_ad21a"]
+[ext_resource type="Script" uid="uid://qdnv3ktuwrur" path="res://script/sp.gd" id="7_5g061"]
+[ext_resource type="PackedScene" uid="uid://0vwxjc503c3p" path="res://scen/chapal_bomm.tscn" id="8_gwemn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3cyi0"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_1x2e1"]
+sky_material = SubResource("ProceduralSkyMaterial_3cyi0")
+
+[sub_resource type="Environment" id="Environment_jbgn1"]
+background_mode = 2
+sky = SubResource("Sky_1x2e1")
+tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_17iq3"]
+vertices = PackedVector3Array(-49.5, 0.45, -49.5, -49.5, 0.45, 49.5, 49.5, 0.45, 49.5, 49.5, 0.45, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbgn1"]
+albedo_texture = ExtResource("1_3cyi0")
+uv1_triplanar = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5g061"]
+
+[node name="TEST_WORLD" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jbgn1")
+
+[node name="plyer" parent="." instance=ExtResource("2_1x2e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426704, 5.26561, 6.29826)
+
+[node name="sp_position" type="Node3D" parent="plyer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12178, -0.477958)
+
+[node name="Desk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52392, 0.05, 33.8925)
+mesh = ExtResource("3_17iq3")
+
+[node name="Books" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.109491, 0, 0.993988, 0, 1, 0, -0.993988, 0, -0.109491, 4.36433, 0.443526, 33.9848)
+mesh = ExtResource("4_ad21a")
+
+[node name="ChairModernFrameCushion" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.901432, 0, -0.43292, 0, 1, 0, 0.43292, 0, -0.901432, 4.03319, 0.0311586, 33.9132)
+mesh = ExtResource("5_noggw")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_17iq3")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346902, 0)
+material_override = SubResource("StandardMaterial3D_jbgn1")
+use_collision = true
+size = Vector3(100, 0.1, 100)
+
+[node name="e1" parent="." instance=ExtResource("6_ad21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05542, 0.396795, 10.7297)
+
+[node name="e2" parent="." instance=ExtResource("6_ad21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0945126, 0.396795, -3.26707)
+
+[node name="e3" parent="." instance=ExtResource("6_ad21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4652, 0.396795, -3.26707)
+
+[node name="e4" parent="." instance=ExtResource("6_ad21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94458, 0.396795, -4.26707)
+
+[node name="e5" parent="." instance=ExtResource("6_ad21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97704, 0.396795, -6.26707)
+
+[node name="e6" parent="." instance=ExtResource("6_ad21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94458, 0.396795, -8.26707)
+
+[node name="sp" type="Node3D" parent="." node_paths=PackedStringArray("pl")]
+script = ExtResource("7_5g061")
+object_scene = ExtResource("8_gwemn")
+pl = NodePath("../plyer/sp_position")
+
+[node name="Label3D" type="Label3D" parent="sp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11383, 0)
+billboard = 1
+text = "      Buy 
+chppl bomb"
+
+[node name="Area3D" type="Area3D" parent="sp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31588, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sp/Area3D"]
+shape = SubResource("SphereShape3D_5g061")
+
+[connection signal="area_entered" from="sp/Area3D" to="sp" method="_on_area_3d_area_entered"]

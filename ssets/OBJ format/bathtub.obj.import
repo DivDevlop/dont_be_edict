@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dd5qn52tg81d0"
+path="res://.godot/imported/bathtub.obj-0dfe0601f1f1007cb3a4584955f5181b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bathtub.obj-0dfe0601f1f1007cb3a4584955f5181b.mesh"]
+
+source_file="res://ssets/OBJ format/bathtub.obj"
+dest_files=["res://.godot/imported/bathtub.obj-0dfe0601f1f1007cb3a4584955f5181b.mesh", "res://.godot/imported/bathtub.obj-0dfe0601f1f1007cb3a4584955f5181b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

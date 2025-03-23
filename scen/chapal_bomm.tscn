@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://0vwxjc503c3p"]
+
+[ext_resource type="Script" uid="uid://cglgpgevae6hk" path="res://script/chapal_bomm.gd" id="1_y6ah0"]
+[ext_resource type="Texture2D" uid="uid://kpdy54tsjetu" path="res://ssets/kenney_particle-pack/PNG (Transparent)/scorch_01.png" id="2_rnj8h"]
+[ext_resource type="PackedScene" uid="uid://due4v5lx2uyc1" path="res://ssets/chppl.glb" id="3_7w0o3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lh8u4"]
+size = Vector3(0.384766, 0.196716, 0.905762)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w0o3"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.913725, 0.662745, 0, 0.662745)
+albedo_texture = ExtResource("2_rnj8h")
+grow_amount = 9.563
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_alo0f"]
+material = SubResource("StandardMaterial3D_7w0o3")
+
+[sub_resource type="Curve" id="Curve_rnj8h"]
+_data = [Vector2(0.0367232, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lh8u4"]
+radius = 0.78624
+
+[node name="chapal_bomm" type="RigidBody3D" groups=["bomb"]]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_y6ah0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0292969, 0.0167542, 0.0471191)
+shape = SubResource("BoxShape3D_lh8u4")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 2
+lifetime = 2.0
+mesh = SubResource("RibbonTrailMesh_alo0f")
+gravity = Vector3(0, 0, 0)
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_rnj8h")
+
+[node name="Area3D" type="Area3D" parent="." groups=["bomb"]]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_lh8u4")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="chppl" parent="." instance=ExtResource("3_7w0o3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -0.219445)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

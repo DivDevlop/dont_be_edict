@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds25oqmkrcmib"]
+
+[ext_resource type="Script" uid="uid://brba6nt03dacv" path="res://scen/fish_money.gd" id="1_i4ntw"]
+[ext_resource type="ArrayMesh" uid="uid://dyurbs454ovj8" path="res://ssets/kenney_survival-kit/Models/OBJ format/fish.obj" id="1_v2hjs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4ntw"]
+radius = 0.0799125
+height = 0.435548
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v2hjs"]
+radius = 0.272052
+
+[node name="fish_money" type="RigidBody3D"]
+script = ExtResource("1_i4ntw")
+
+[node name="Fish" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_v2hjs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0387366, -0.999249, 0, 0.999249, -0.0387366, 0, 0, 0, 1, 0.00898203, 0.0762979, 0)
+shape = SubResource("CapsuleShape3D_i4ntw")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_v2hjs")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

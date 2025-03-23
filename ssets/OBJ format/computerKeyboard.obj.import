@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dyc0ett6l4tfj"
+path="res://.godot/imported/computerKeyboard.obj-0c7c436810e0225dec5a1b9b567898b5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/computerKeyboard.obj-0c7c436810e0225dec5a1b9b567898b5.mesh"]
+
+source_file="res://ssets/OBJ format/computerKeyboard.obj"
+dest_files=["res://.godot/imported/computerKeyboard.obj-0c7c436810e0225dec5a1b9b567898b5.mesh", "res://.godot/imported/computerKeyboard.obj-0c7c436810e0225dec5a1b9b567898b5.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brag4chu0ol81"
+path="res://.godot/imported/kitchenBlender.obj-90e39e6bf902d42dec0b5486e9f093cf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchenBlender.obj-90e39e6bf902d42dec0b5486e9f093cf.mesh"]
+
+source_file="res://ssets/OBJ format/kitchenBlender.obj"
+dest_files=["res://.godot/imported/kitchenBlender.obj-90e39e6bf902d42dec0b5486e9f093cf.mesh", "res://.godot/imported/kitchenBlender.obj-90e39e6bf902d42dec0b5486e9f093cf.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

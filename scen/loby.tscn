@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://rv3djqa05tpv"]
+
+[ext_resource type="Texture2D" uid="uid://bklmsqkich2qt" path="res://ssets/rect1.png" id="1_1xfdj"]
+[ext_resource type="Script" uid="uid://0xio1136tbuk" path="res://script/loby.gd" id="1_l4cdu"]
+[ext_resource type="Texture2D" uid="uid://br2gl10hrkrhg" path="res://ssets/text4.png" id="2_gqttd"]
+[ext_resource type="Texture2D" uid="uid://bwkxvv7w61ayi" path="res://ssets/text4-3s.png" id="3_f2xfx"]
+[ext_resource type="Texture2D" uid="uid://dveav2y1hfjke" path="res://ssets/text4-5.png" id="4_l4cdu"]
+[ext_resource type="Texture2D" uid="uid://cxk2pbw72ey1d" path="res://ssets/text4-s5-0.png" id="5_8m5os"]
+[ext_resource type="PackedScene" uid="uid://bax7guj5fktpc" path="res://scen/scen_1.tscn" id="6_f2xfx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xfdj"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0cflh"]
+sky_material = SubResource("ProceduralSkyMaterial_1xfdj")
+
+[sub_resource type="Environment" id="Environment_rokk3"]
+background_mode = 2
+sky = SubResource("Sky_0cflh")
+tonemap_mode = 2
+
+[node name="loby" type="Node3D"]
+script = ExtResource("1_l4cdu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rokk3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -216.0
+offset_right = -307.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1xfdj")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 47.0
+offset_right = 608.0
+offset_bottom = 648.0
+theme_override_constants/separation = 40
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 120
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 120
+
+[node name="TextureButton" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_gqttd")
+texture_pressed = ExtResource("3_f2xfx")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("4_l4cdu")
+texture_pressed = ExtResource("5_8m5os")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.338544, -0.332686, 0.880175, -0.0319829, 0.930802, 0.364123, -0.940407, -0.151422, 0.304477, 1.85974, 0.563626, 1.41122)
+fov = 72.3
+
+[node name="scen1" parent="." instance=ExtResource("6_f2xfx")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.593441, 0.777331, 0.208768, -0.144648, -0.152156, 0.977714, 0.791773, -0.610414, 0.0221434, 1.23117, 1.59437, 1.4181)
+
+[connection signal="pressed" from="Control/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
