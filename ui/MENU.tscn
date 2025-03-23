@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://bicfro0jsnfg3"]
+
+[ext_resource type="Theme" uid="uid://djg2xuw1niayn" path="res://ui/BUTTON THEME MENU.tres" id="1_u85j5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u85j5"]
+bg_color = Color(0.381631, 0.424271, 0.893104, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.901961, 0.698039, 0.447059, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.141176, 0.380392, 0.360784, 0.219608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpmeh"]
+bg_color = Color(0.32549, 0.882353, 0.843137, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.901961, 0.698039, 0.447059, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.141176, 0.380392, 0.360784, 0.219608)
+
+[sub_resource type="Theme" id="Theme_tgai7"]
+ProgressBar/colors/font_color = Color(0.901961, 0.698039, 0.447059, 1)
+ProgressBar/colors/font_outline_color = Color(0.381631, 0.424271, 0.893104, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_u85j5")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_hpmeh")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(2.16588e-06, 0.709869, 0.437336, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -52.0
+offset_right = 115.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="START" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme = ExtResource("1_u85j5")
+text = "START"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme = ExtResource("1_u85j5")
+text = "QUIT"
+
+[node name="SETTING" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme = ExtResource("1_u85j5")
+text = "SETTING "
+
+[node name="loading" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(800, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 620.0
+offset_right = 400.0
+offset_bottom = 692.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_tgai7")

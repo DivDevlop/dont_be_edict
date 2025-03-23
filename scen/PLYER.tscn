@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://btkiakbwd8ra8"]
+[gd_scene load_steps=24 format=4 uid="uid://btkiakbwd8ra8"]
 
 [ext_resource type="Script" uid="uid://d2k5pubs5ud8c" path="res://scen/plyer.gd" id="1_61iif"]
 [ext_resource type="Texture2D" uid="uid://klqr7fyv4ypl" path="res://ssets/kenney_animated-characters-2/Skins/skaterMaleA.png" id="2_ahitg"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bqhgqp8adghfe" path="res://ssets/ui/rect2-9.png" id="4_kuvds"]
 [ext_resource type="FontFile" uid="uid://clgshb3ie5eb6" path="res://ssets/Jersey_10/Jersey10-Regular.ttf" id="5_b844d"]
 [ext_resource type="Texture2D" uid="uid://2qurslkhkpfx" path="res://ssets/ui/rect2-9-3.png" id="5_kwye7"]
+[ext_resource type="AudioStream" uid="uid://byq4wwnjgrinq" path="res://AUDIO/163442__under7dude__man-dying.wav" id="7_kwye7"]
+[ext_resource type="AudioStream" uid="uid://briojprk8je5t" path="res://AUDIO/176178__eelke__slipper-feet-walking-on-a-tiled-floor.wav" id="8_twxry"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jdqgi"]
 size = Vector3(0.57251, 1.81787, 0.49469)
@@ -1377,7 +1379,14 @@ radius = 0.711993
 font = ExtResource("5_b844d")
 font_size = 120
 font_color = Color(1, 0, 0, 1)
-outline_size = 10
+outline_size = 55
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_twxry"]
+font = ExtResource("5_b844d")
+font_size = 90
+font_color = Color(0.939914, 0.925903, 0, 1)
+outline_size = 40
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kuvds"]
@@ -1975,6 +1984,22 @@ grow_vertical = 2
 text = "      you get edicted"
 label_settings = SubResource("LabelSettings_kwye7")
 
+[node name="Label3" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " TRY AGAIN"
+label_settings = SubResource("LabelSettings_twxry")
+
 [node name="Label2" type="Label" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
@@ -1988,6 +2013,13 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "ediction leve ; >"
 label_settings = SubResource("LabelSettings_kuvds")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_kwye7")
+
+[node name="WALK" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_twxry")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="ch/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]

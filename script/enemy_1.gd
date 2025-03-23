@@ -73,6 +73,7 @@ func _on_timer_timeout() -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	print("enter")
 	if area.is_in_group("bomb"):
+		$AudioStreamPlayer.play()
 		print("bomb")
 		timer.start()
 		$ded.visible = true

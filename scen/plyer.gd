@@ -31,8 +31,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $helt.value >= 50:
+		$AudioStreamPlayer.play()
 		$Label.visible = true
-		await get_tree().create_timer(2.0).timeout
+		$Label3.visible = true
+		await get_tree().create_timer(6.0).timeout
 		get_tree().reload_current_scene()
 
 
@@ -83,6 +85,7 @@ func _physics_process(delta):
 		if not is_jumping:
 			if direction.length() > 0:
 				anim.play("run")
+				
 			else:
 				anim.play("idel") 
 

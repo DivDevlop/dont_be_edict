@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://ovlvjg12astt"]
+[gd_scene load_steps=14 format=4 uid="uid://ovlvjg12astt"]
 
 [ext_resource type="Script" uid="uid://dntotxy2jmqap" path="res://script/enemy_1.gd" id="1_1v3xr"]
 [ext_resource type="Texture2D" uid="uid://cv0tqyb0k328g" path="res://ssets/kenney_particle-pack/PNG (Transparent)/scratch_01.png" id="2_4hyjv"]
+[ext_resource type="AudioStream" uid="uid://dbxuokad87cq3" path="res://AUDIO/67473__qubodup__m67_fragmentation_grenade_explosion_3_no_echo.wav" id="3_ombre"]
+[ext_resource type="AudioStream" uid="uid://b1xdg1x71prqu" path="res://AUDIO/536095__eminyildirim__shoe-slipper-squeak-wet.wav" id="4_ovjdo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ombre"]
 size = Vector3(1, 1.44055, 0.549377)
@@ -210,6 +212,14 @@ texture = ExtResource("2_4hyjv")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(0.50693, 0.00729877, 0.861956, 0.861961, -0.0121285, -0.50683, 0.00675499, 0.9999, -0.0124395, 0, 0.614972, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ombre")
+
+[node name="NORNAL" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ovjdo")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

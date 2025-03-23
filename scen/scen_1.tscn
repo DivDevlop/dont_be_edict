@@ -1277,7 +1277,7 @@ data = PackedVector3Array(-0.17, 0, 0.2, -0.17, 0, 0.03, -0.2, 0, 0.2, -0.2, 0, 
 [node name="scen1" type="Node3D"]
 
 [node name="ch" type="Node3D" parent="."]
-transform = Transform3D(0.0122828, 0, 0.199622, 0, 0.2, 0, -0.199622, 0, 0.0122828, 0.592042, 0.0551423, 1.30825)
+transform = Transform3D(0.0814236, 0, 0.182675, 0, 0.2, 0, -0.182675, 0, 0.0814236, 0.592042, 0.0551423, 1.30825)
 
 [node name="Root" type="Node3D" parent="ch"]
 
