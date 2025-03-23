@@ -128,7 +128,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1v3xr"]
-radius = 0.623208
+radius = 1.26522
 
 [node name="e1" type="CharacterBody3D"]
 script = ExtResource("1_1v3xr")

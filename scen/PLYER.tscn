@@ -1371,7 +1371,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jdqgi"]
-radius = 0.647265
+radius = 0.711993
 
 [sub_resource type="LabelSettings" id="LabelSettings_kuvds"]
 font = ExtResource("5_b844d")
@@ -1931,7 +1931,7 @@ shape = SubResource("SphereShape3D_jdqgi")
 [node name="Area3D2" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369815, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.898294, 0)
 shape = SubResource("SphereShape3D_jdqgi")
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -1984,3 +1984,4 @@ label_settings = SubResource("LabelSettings_kuvds")
 
 [connection signal="animation_finished" from="ch/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
+[connection signal="area_exited" from="Area3D2" to="." method="_on_area_3d_2_area_exited"]
