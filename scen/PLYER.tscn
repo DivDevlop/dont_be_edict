@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://btkiakbwd8ra8"]
+[gd_scene load_steps=21 format=4 uid="uid://btkiakbwd8ra8"]
 
 [ext_resource type="Script" uid="uid://d2k5pubs5ud8c" path="res://scen/plyer.gd" id="1_61iif"]
 [ext_resource type="Texture2D" uid="uid://klqr7fyv4ypl" path="res://ssets/kenney_animated-characters-2/Skins/skaterMaleA.png" id="2_ahitg"]
@@ -1371,7 +1371,14 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jdqgi"]
-radius = 0.647265
+radius = 0.711993
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwye7"]
+font = ExtResource("5_b844d")
+font_size = 120
+font_color = Color(1, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kuvds"]
 font = ExtResource("5_b844d")
@@ -1931,7 +1938,7 @@ shape = SubResource("SphereShape3D_jdqgi")
 [node name="Area3D2" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369815, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.898294, 0)
 shape = SubResource("SphereShape3D_jdqgi")
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -1959,14 +1966,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -494.0
-offset_top = -97.0
-offset_right = 495.0
-offset_bottom = 98.0
+offset_left = -494.5
+offset_top = -97.5
+offset_right = 494.5
+offset_bottom = 97.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "you get edicted"
-label_settings = SubResource("LabelSettings_kuvds")
+text = "      you get edicted"
+label_settings = SubResource("LabelSettings_kwye7")
 
 [node name="Label2" type="Label" parent="."]
 anchors_preset = 7
@@ -1984,3 +1991,4 @@ label_settings = SubResource("LabelSettings_kuvds")
 
 [connection signal="animation_finished" from="ch/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
+[connection signal="area_exited" from="Area3D2" to="." method="_on_area_3d_2_area_exited"]

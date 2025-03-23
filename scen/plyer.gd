@@ -102,3 +102,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_area_3d_2_area_entered(area: Area3D) -> void:
 	$helt.value += 1
+
+
+func _on_area_3d_2_area_exited(area: Area3D) -> void:
+	$helt.value += 1

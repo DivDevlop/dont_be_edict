@@ -15,7 +15,7 @@ var random_offset = Vector3.ZERO
 
 func _ready():
 	agent.path_desired_distance = 0.2
-	agent.target_desired_distance = 0.1
+	agent.target_desired_distance = 0.0
 	random_offset = Vector3(randf_range(-2, 2), 0, randf_range(-2, 2))
 
 func _physics_process(delta):
@@ -40,9 +40,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 	if $RayCast3D.is_colliding():
-		velocity_y += 1
-		position.x += 1
-		position.z += 1
+		if not player:
+			velocity_y += 1
+			position.x += 1
+			position.z += 1
 
 
 
