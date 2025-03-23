@@ -1,1 +1,1 @@
-CHECK lICENSE
+Source Available License
